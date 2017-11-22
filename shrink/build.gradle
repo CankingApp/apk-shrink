@@ -1,0 +1,32 @@
+apply plugin: 'groovy'
+apply plugin: 'java'
+apply plugin: 'maven'
+
+group 'win.canking.gradle'
+version '1.0.1'
+archivesBaseName = 'apk-shrink'
+
+compileGroovy {
+    sourceCompatibility = 1.7
+    targetCompatibility = 1.7
+    options.encoding = "UTF-8"
+}
+
+dependencies {
+    compile gradleApi()
+    compile localGroovy()
+    compile 'com.android.tools.build:gradle:2.1.0'
+}
+
+//      gradlew -p shrink clean build uploadArchives --info
+uploadArchives {
+    repositories.mavenDeployer {
+        //文件发布到下面目录
+        repository(url: uri('../../ChargeHelperPro/gradleplugin/'))
+    }
+}
+
+
+
+
+
