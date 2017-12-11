@@ -224,6 +224,14 @@ aapt l -v xxx.apk
         }
     }
 ```
+注：此Demo依赖项目的编译流程，需要在自己项目中build.gradle中配置相关压缩参数：
+
+```
+shrinkConfig {
+    enable = true
+    apkPath = '/PATH/App-release.apk'//可通过代码方法自动获取
+}
+```
 
 也可以自定义一个单独的task，不依赖编译流程。
 
@@ -232,7 +240,7 @@ aapt l -v xxx.apk
 ![shrink](snapshot/shrinka.png)![shrink](snapshot/shrinkb.png)
 
 
--------——————
+-----
 欢迎转载，请标明出处：常兴E站 [canking.win](http://www.canking.win)
 
 
